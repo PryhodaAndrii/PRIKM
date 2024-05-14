@@ -1,0 +1,37 @@
+.portf__frame__video__container{
+	position: absolute;
+	width: 40%;
+	height: 100%;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: scroll;
+ 	padding: 100px 50px;
+ 	background-color: rgba(40, 40, 40, 0.5);
+}
+iframe{
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+.video
+{
+	width: 32rem;
+	height: 18rem;
+}
+.portf__video{
+  padding: 20px;
+}
+
+.portf__frame__video__container::-webkit-scrollbar {
+    display: none;
+}
+.portf__frame__video__container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

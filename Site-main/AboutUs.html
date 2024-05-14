@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/aboutUs.css">
+	<link rel="stylesheet" href="slider/chiefslider.css">
+  <link rel="stylesheet" href="css/media.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&effect=neon|outline|emboss|shadow-multiple">
+	<title>Main page</title>
+
+	<style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container1 {
+    	z-index: -1000;
+      max-width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    .slider__container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .slider__item {
+    	z-index: 0;
+      flex: 0 0 100%;
+      max-height: 100vh;
+      object-fit: cover;
+    }
+
+    .slider__item-container {
+	  line-height: 100vh;
+      text-align: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .slider__item:nth-child(1) .slider__item-content {
+      background: url("./resources/SliderImage/1.png") no-repeat;
+      -webkit-background-size: cover;
+  	  background-size: cover;
+    }
+
+    .slider__item:nth-child(2) .slider__item-content {
+      background: url("./resources/SliderImage/2.jpg") no-repeat;
+      -webkit-background-size: cover;
+  	  background-size: cover;
+    }
+
+    .slider__item:nth-child(3) .slider__item-content {
+      background: url("./resources/SliderImage/3.jpg") no-repeat;
+      -webkit-background-size: cover;
+  	  background-size: cover;
+    }
+
+    .slider__item:nth-child(4) .slider__item-content {
+      background: url("./resources/SliderImage/4.jpg") no-repeat;
+      -webkit-background-size: cover;
+  	  background-size: cover;
+    }
+    .slider__item:nth-child(5) .slider__item-content {
+      background: url("./resources/SliderImage/5.jpg") no-repeat;
+      -webkit-background-size: cover;
+  	  background-size: cover;
+    }
+    .slider__item:nth-child(6) .slider__item-content {
+      background: url("./resources/SliderImage/6.png") no-repeat;
+      -webkit-background-size: cover;
+  	  background-size: cover;
+    }
+    .slider__item:nth-child(7) .slider__item-content {
+      background: url("./resources/SliderImage/7.jpg") no-repeat;
+      -webkit-background-size: cover;
+  	  background-size: cover;
+    }
+    .slider__item:nth-child(8) .slider__item-content {
+      background: url("./resources/SliderImage/8.png") no-repeat;
+      -webkit-background-size: cover;
+  	  background-size: cover;
+    }
+  </style>
+</head>
+
+
+<header class="header">
+	<div class="container">
+		<div class="h_container">
+			<div class="logo">
+				<h1><span>C</span>HEMIST <img class="Logo" src="./resources/Logo1.png" alt=""> STUDI<span>O</span></h1>
+			</div>
+			<nav class="navigation">
+				<a class="nav_link" href="./index.html">Home</a>
+        <!-- <a class="nav_link" href="./3dEditing.html">3D Editing</a> -->
+        <a class="nav_link" href="./Portfolio.html">Portfolio</a>
+        <a class="nav_link_active" href="./AboutUs.html">About us</a>
+        <a class="nav_link" href="./ContactUs.html">Contact us</a>
+        <div onclick={toggle()} class="burger"> 
+                <div id="line1" class="line1"></div> 
+                <div id="line2" class="line2"></div> 
+                <div id="line3" class="line3"></div> 
+            </div> 
+            <div id="burger_nav" class="burger_nav"> 
+                <a href="./index.html" class="burger_nav__button">Home</a> 
+            <a href="./Portfolio.html" class="burger_nav__button">Portfolio</a> 
+            <a href="./AboutUs.html" class="burger_nav__button__active">About us</a> 
+            <a href="./ContactUs.html" class="burger_nav__button">Contact us</a>
+            </div> 
+
+       </div>
+			</nav>
+		</div>
+	</div>
+	
+</header>
+
+
+<body>
+  <div class="container1">
+    <div class="slider" data-slider="chiefslider">
+      <div class="slider__container">
+        <div class="slider__wrapper">
+          <div class="slider__items">
+            <div class="slider__item">
+              <div class="slider__item-container">
+                <div class="slider__item-content"> </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item-container">
+                <div class="slider__item-content"> </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item-container">
+                <div class="slider__item-content"> </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item-container">
+                <div class="slider__item-content"> </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item-container">
+                <div class="slider__item-content"> </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item-container">
+                <div class="slider__item-content"> </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item-container">
+                <div class="slider__item-content"> </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item-container">
+                <div class="slider__item-content"> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="slider__control" data-slide="prev"></a>
+      <a href="#" class="slider__control" data-slide="next"></a>
+    </div>
+  </div>
+  <div class="aboutUs__mainContainer">
+    <p class="text__decoration"><span>We</span> are a team that is professionally engaged in animation and video editing.</p><br>
+      <p class="text__decoration">We use for animation and high-quality 3D scene visualization:</p>
+      <ul class="app__list">
+        <li>SFM (Source Filmmaker)</li>
+        <li>Blender</li>
+        <li>Cinema 4D</li>
+        <li>Unreal Engine 4</li>
+    </ul>
+<p class="text__decoration">Our team consists of experienced specialists and designers and each of our clients was satisfied with the work!</p>
+    
+  </div>
+  <div class="social__right__container">
+    <div class="social__right">
+    <a href="https://www.instagram.com/adventurik_/" target="_blank" class="social__container">
+      <img src="./resources/Socials/logo-inst.svg" alt="">
+    </a>
+    <a href="https://www.youtube.com/channel/UCRUElP3hc0VjHH5WfJQLjTQ" target="_blank" class="social__container">
+      <img src="./resources/Socials/logo-YT.svg" alt="">
+    </a>
+    <a href="" target="_blank" class="social__container">
+      <img src="./resources/Socials/logo-tt.svg" alt="">
+    </a>
+    <a href="" target="_blank" class="social__container">
+      <img src="./resources/Socials/logo-twitter.svg" alt="">
+    </a>
+    <a href="https://vk.com/adventuric" target="_blank" class="social__container">
+      <img src="./resources/Socials/logo-vk.svg" alt="">
+    </a>
+    <a href="https://www.facebook.com/al.chemist.750546/" target="_blank" class="social__container">
+      <img src="./resources/Socials/logo-fb.svg" alt="">
+    </a>
+  </div>
+</div>
+  <script src="./slider/chiefslider.js"></script>
+
+  <script>
+    const $slider = document.querySelector('[data-slider="chiefslider"]');
+    const slider = new ChiefSlider($slider, {
+      loop: false
+    });
+    const change = () => {
+        document.getElementById("three").classList.toggle("active-three");
+      };
+  </script>
+  <script type="text/javascript" src="js/burger.js"></script>
+
+
+	
+
+</body>
+</html>
+

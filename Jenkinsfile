@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh "docker build -t prikm:latest ."
                 sh "docker tag prikm $DOCKER_IMAGE:latest"
-                sh "docker tag prikm $DOCKER_IMAGE/prikm:$BUILD_NUMBER"
+                sh "docker tag prikm $DOCKER_IMAGE:$BUILD_NUMBER"
             }
             post{
                 failure {

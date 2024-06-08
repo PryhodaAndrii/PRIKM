@@ -1,0 +1,3 @@
+COMMAND_AUDIO = "a"
+
+COMMAND_VIDEO = "v"

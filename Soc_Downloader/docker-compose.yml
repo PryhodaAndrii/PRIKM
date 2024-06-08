@@ -1,0 +1,16 @@
+---
+version: '3.3'
+
+services:
+  soc_downloader:
+    image: downloader:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+
+    container_name: downloader
+    environment:
+      MAIN_BOT_TOKEN: ${MAIN_BOT_TOKEN}
+      API_ID: ${API_ID}
+      API_HASH: ${API_HASH}

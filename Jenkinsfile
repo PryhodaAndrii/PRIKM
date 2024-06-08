@@ -1,72 +1,97 @@
 pipeline {
     agent any
-
     environment {
-        DOCKER_IMAGE = 'pryhodaandrii/prikm'
+		MAIN_BOT_TOKEN = credentials('main_bot_token')
+		API_ID = credentials('api_id')
+		API_HASH = credentials('api_hash')
+	
+		DOCKER_IMAGE = 'pryhodaandrii/downloader'
     }
-
     stages {
         stage('Start') {
             steps {
-                echo 'Lab_5: start for monitoring and Jenkins'
+                echo 'downloader: nginx/custom'
             }
         }
 
-        stage('Image build') {
+        stage('Build Weather services') {
             steps {
-                sh "docker build -t prikm:latest ."
-                sh "docker tag prikm $DOCKER_IMAGE:latest"
-                sh "docker tag prikm $DOCKER_IMAGE:$BUILD_NUMBER"
+                sh 'export MAIN_BOT_TOKEN=$MAIN_BOT_TOKEN'
+				sh 'export API_ID=$API_ID'
+				sh 'export API_HASH=$API_HASH'
+                dir("Soc_Downloader")
+				{
+					sh 'docker-compose build'
+				}
+				sh 'docker tag downloader:latest $DOCKER_IMAGE:latest'
+                sh 'docker tag downloader:latest $DOCKER_IMAGE:$BUILD_NUMBER'
             }
             post{
                 failure {
                     script {
-                        // Send Telegram notification on success
+                    // Send Telegram notification on success
+                        telegramSend message: "Job Name: ${env.JOB_NAME}\n Branch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}\n Failure stage: '${env.STAGE_NAME}'"
+                    }
+                }
+            }
+        }
+
+        stage('Test downloader services') {
+            steps {
+                echo 'Pass'
+            }
+            post{
+                failure {
+                    script {
+                    // Send Telegram notification on success
                         telegramSend message: "Job Name: ${env.JOB_NAME}\nBranch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
                     }
                 }
             }
         }
 
-        stage('Push to registry') {
+		stage('Push to registry') {
             steps {
                 withDockerRegistry([ credentialsId: "dockerhub_token", url: "" ])
                 {
                     sh "docker push $DOCKER_IMAGE:latest"
                     sh "docker push $DOCKER_IMAGE:$BUILD_NUMBER"
+
                 }
             }
             post{
                 failure {
                     script {
-                        // Send Telegram notification on success
+                    // Send Telegram notification on success
                         telegramSend message: "Job Name: ${env.JOB_NAME}\nBranch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
                     }
                 }
             }
         }
 
-        stage('Deploy image'){
-            steps{
-                sh "docker stop \$(docker ps | grep '$DOCKER_IMAGE' | awk '{print \$1}') || true"
-                sh "docker container prune --force"
-                sh "docker image prune --force"
-                //sh "docker rmi \$(docker images -q) || true"
-                sh "docker run -d -p 80:80 $DOCKER_IMAGE"
+        stage('Deploy downloader services') {
+            steps {
+				dir("Soc_Downloader"){
+					sh "docker-compose down -v"
+                	sh "docker container prune --force"
+                	sh "docker image prune --force"
+                	sh "docker-compose up -d --build"
+				}
             }
             post{
                 failure {
                     script {
-                        // Send Telegram notification on success
+                    // Send Telegram notification on success
                         telegramSend message: "Job Name: ${env.JOB_NAME}\nBranch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
                     }
                 }
             }
         }
     }
-    post{
-        success{
-            script{
+
+    post {
+        success {
+            script {
                 // Send Telegram notification on success
                 telegramSend message: "Job Name: ${env.JOB_NAME}\n Branch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}"
             }

@@ -11,6 +11,10 @@ services:
       TELEGRAM_BOT_NAME: ${TELEGRAM_BOT_NAME}
       DOCKERHUB_USERNAME: ${DOCKERHUB_USERNAME}
       DOCKERHUB_PASSWORD: ${DOCKERHUB_PASSWORD}
+      
+      MAIN_BOT_TOKEN: ${MAIN_BOT_TOKEN}
+      API_ID: ${API_ID}
+      API_HASH: ${API_HASH}
     restart: unless-stopped
     ports:
       - 50000:50000

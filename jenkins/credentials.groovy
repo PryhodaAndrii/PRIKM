@@ -3,6 +3,8 @@ import com.cloudbees.plugins.credentials.impl.*
 import com.cloudbees.plugins.credentials.*
 import jenkins.model.*
 import hudson.util.Secret
+import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl
+
 
 // Функція для отримання змінних середовища
 def getEnvVariable(String name) {
@@ -26,7 +28,6 @@ def apiIDCreds = new StringCredentialsImpl(CredentialsScope.GLOBAL, "api_id", "t
 def apiHashCreds = new StringCredentialsImpl(CredentialsScope.GLOBAL, "api_hash", "tg api hash", Secret.fromString(apiHash))
 
 store.addCredentials(domain, creds)
-
 store.addCredentials(domain, mainBotTokenCreds)
 store.addCredentials(domain, apiIDCreds)
 store.addCredentials(domain, apiHashCreds)

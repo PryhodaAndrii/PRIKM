@@ -23,16 +23,17 @@ logger = logging.getLogger()
 
 
 
-api_id = environ.get("API_ID","define me") 23465764
+api_id = environ.get("API_ID","define me") 
 
-api_hash = environ.get("API_HASH","define me") 'b0d09e5fdddd42e50eb8 21496550eb4c'
+api_hash = environ.get("API_HASH","define me")
 
-bot_token = environ.get("MAIN_BOT_TOKEN","define me") "7080658348:AAHR1R9weR--4sWQjcbR_i7A8s7oiSNvyGE"
+bot_token = environ.get("MAIN_BOT_TOKEN","define me")
 
+logger.info(bot_token)
 
 SAVE_FOLDER = os.path.join(os.path.dirname(__file__), f"_videos/")
 
-print('Bot has been started')
+logger.info('Bot has been started')
 print(bot_token)
 
 try:
